@@ -1,46 +1,87 @@
-# Getting Started with Create React App
+# Using Streambird React component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To render the Streambird auth/login component in your React project, simply install the package and configure the Streambird component. For further information on all the Streambird props and definitions, they can be found within the the [Streambird SDK](https://docs.streambird.io/docs/sdk).
 
-## Available Scripts
+## Usage
 
-In the project directory, you can run:
+Before you run npm or yarn, make sure you have the following setup on the Streambird portal. Without these settings, the React component will not work.
 
-### `yarn start`
+1. Public API key
+2. Login redirect URL
+3. Registration redirect URL
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Paste these values into their corresponding config sections / variables.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```sh
+npm install
+npm run-script start
 
-### `yarn test`
+or
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+yarn install
+yarn start
 
-### `yarn build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Example code
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```js
+import { Streambird } from "@streambird/streambird-react";
+import { ErrorData, SuccessData, WalletType } from '@streambird/streambird-js';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const App = () => {
+  const streambirdConfig = {
+    emailMagicLink: {
+      loginRedirectUrl: 'LOGIN_REDIRECT_URL_FROM_PORTAL_GOES_HERE',
+      registrationRedirectUrl: 'REGISTRATION_REDIRECT_URL_FROM_PORTAL_GOES_HERE',
+      loginExpiresIn: 5,
+      registrationExpireIn: 5,
+      requiresVerification: false,
+      autoVerify: true
+    },
+    wallet: {
+      walletType: WalletType.Ethereum
+    },
+    componentStyle: {
+      width: 500,
+      showHeaderText: true,
+      headerText: 'Welcome to passbird',
+      headerTextColor: '',
+      bodyText: 'Please enter your email address and sign up with a magic link to start using decentralized applications.',
+      bodyTextColor: '#333333',
+      buttonTextColor: '#FFFFFF',
+      buttonColor: '',
+      errMsgColor: ''
+    }
+  }
 
-### `yarn eject`
+  const handleCallbacks = {
+    onSuccess: (message: SuccessData) => {
+      console.log(message)
+    },
+    onError: (message: ErrorData) => {
+      console.log(message)
+    }
+  }
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  return (
+    <div id="login">
+      <Streambird
+        publicToken={"YOUR_API_KEY_FROM_PORTAL_GOES_HERE"}
+        config={streambirdConfig}
+        callbacks={handleCallbacks}
+      />
+    </div>
+  );
+};
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default App;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+For detailed description and information on how to use the Streambird SDK, please refer to the [SDK docs](https://docs.streambird.io/docs/sdk).
 
-## Learn More
+### Changelog
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**[1.0.0] - 2020-03-06**
+- Launch Streambird React component
