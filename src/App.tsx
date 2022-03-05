@@ -29,11 +29,9 @@ const App = () => {
 
   const handleCallbacks = {
     onSuccess: (message: SuccessData) => {
-      console.log("ON SUCCESS DONE!!!!!")
       console.log(message)
     },
     onError: (message: ErrorData) => {
-      console.log("ON ERROR DONE!!!!!")
       console.log(message)
     }
   }

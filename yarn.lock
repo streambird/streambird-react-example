@@ -1702,13 +1702,12 @@
   resolved "https://registry.yarnpkg.com/@streambird/streambird-js/-/streambird-js-1.0.1.tgz#7dc8bcf40772de7a11c901f2d6050cd25d28b766"
   integrity sha512-UrILYOEeyNyaAkLhJpgfXrE+mnzXtxL7F4zs31yFuFxq9qbjT7sHXf3m7MHmLbHDBeZytPWl1f4flChua3QC5w==
 
-"@streambird/streambird-react@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@streambird/streambird-react/-/streambird-react-1.0.1.tgz#ccfd0dfd3be8a2f266e2e051f472324128bf7495"
-  integrity sha512-mApHc7C6mBCsVhVAq9UHHnXf2NW0jN3cXT2AM5FEszRSmzl4gKOh23QO/QuX0OPql3TY1dKzqrGBqP0CLg/rZg==
+"@streambird/streambird-react@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@streambird/streambird-react/-/streambird-react-1.0.2.tgz#f39ccf236ac29e9f505435c523003757f0e4a701"
+  integrity sha512-ikvvjkzMBd9XW0iYXszl9i0TFOGNIjpm1EdQ2I50OELqdv0gEpWCmnirFdbGRhe/dXhLR5OR9hkStiNaP0S+kg==
   dependencies:
     "@streambird/streambird-js" "^1.0.1"
-    uuid "^8.3.2"
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
