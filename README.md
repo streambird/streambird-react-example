@@ -31,6 +31,7 @@ import { ErrorData, SuccessData, WalletType } from '@streambird/streambird-js';
 
 const App = () => {
   const streambirdConfig = {
+    enabledProducts: [ProductTypes.EmailMagicLink],
     emailMagicLink: {
       loginRedirectUrl: 'LOGIN_REDIRECT_URL_FROM_PORTAL_GOES_HERE',
       registrationRedirectUrl: 'REGISTRATION_REDIRECT_URL_FROM_PORTAL_GOES_HERE',
@@ -38,9 +39,6 @@ const App = () => {
       registrationExpireIn: 5,
       requiresVerification: false,
       autoVerify: true
-    },
-    wallet: {
-      walletType: WalletType.Ethereum
     },
     componentStyle: {
       width: 500,

@@ -2,7 +2,7 @@
   "name": "streambird-react-example",
   "version": "1.0.0",
   "dependencies": {
-    "@streambird/streambird-react": "^1.0.2",
+    "@streambird/streambird-react": "^1.0.5",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^17.0.20",
